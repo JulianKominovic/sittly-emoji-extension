@@ -1,5 +1,5 @@
 import { BsClipboard, BsEmojiSmile } from "react-icons/bs";
-import React from "react";
+import * as React from "react";
 import { SittlyCommand } from "sittly-devtools/dist/components/own_command";
 import * as unicodeEmoji from "unicode-emoji";
 import {
