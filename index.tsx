@@ -9,8 +9,6 @@ import { useServices } from "sittly-devtools/dist/hooks/context";
 import { ExtensionMetadata, ExtensionPages } from "sittly-devtools/dist/types";
 // const emojis = unicodeEmoji.getEmojis();
 
-import.meta.env = undefined;
-
 const pages: ExtensionPages = [
   {
     name: "Emojis",
