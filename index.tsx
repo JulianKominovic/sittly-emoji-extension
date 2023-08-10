@@ -19,6 +19,9 @@ const pages: ExtensionPages = [
         (state) => state.setContextMenuOptions
       );
       return (
+        // EL GRID O ALGO DE ADENTRO ESTÁ CAUSANDO UN LOOP INFINITO DE RENDERS
+        // PUEDE SER UN LOOP DE IMPORTS
+        // O UN LOOP DE CONTEXTOS
         <SittlyCommand.Grid
           id="emojis-page-list"
           columns={4}
