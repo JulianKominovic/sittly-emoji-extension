@@ -1,13 +1,13 @@
 import { BsClipboard, BsEmojiSmile } from "react-icons/bs";
 import { SittlyCommand } from "sittly-devtools/dist/components/own_command";
-// import * as unicodeEmoji from "unicode-emoji";
+import * as unicodeEmoji from "unicode-emoji";
 import {
   copyToClipboard,
   pasteToCurrentWindow,
 } from "sittly-devtools/dist/api/clipboard";
 import { useServices } from "sittly-devtools/dist/hooks/context";
 import { ExtensionMetadata, ExtensionPages } from "sittly-devtools/dist/types";
-// const emojis = unicodeEmoji.getEmojis();
+const emojis = unicodeEmoji.getEmojis();
 
 const pages: ExtensionPages = [
   {
@@ -24,16 +24,7 @@ const pages: ExtensionPages = [
         <SittlyCommand.Grid
           id="emojis-page-list"
           columns={4}
-          items={[
-            {
-              emoji: "😀",
-              description: "Grinning Facea",
-            },
-            {
-              emoji: "😃",
-              description: "Grinning Face with Big Eyes",
-            },
-          ].map((emoji) => {
+          items={emojis.map((emoji) => {
             return {
               onClick() {
                 pasteToCurrentWindow(emoji.emoji);
@@ -78,12 +69,4 @@ const metadata: ExtensionMetadata = {
   repoUrl: "https://github.com/JulianKominovic/sittly-emoji-extension",
 };
 
-(window as any).extensions = (window as any).extensions
-  ? [
-      ...(window as any).extensions,
-      {
-        pages,
-        metadata,
-      },
-    ]
-  : [{ pages, metadata }];
+export { metadata, pages };
