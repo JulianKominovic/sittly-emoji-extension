@@ -21,9 +21,9 @@ const pages: ExtensionPages = [
         // EL GRID O ALGO DE ADENTRO ESTÁ CAUSANDO UN LOOP INFINITO DE RENDERS
         // PUEDE SER UN LOOP DE IMPORTS
         // O UN LOOP DE CONTEXTOS
-        <SittlyCommand.Grid
+        <SittlyCommand.List
           id="emojis-page-list"
-          columns={4}
+          // columns={4}
           items={emojis.map((emoji) => {
             return {
               onClick() {
