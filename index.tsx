@@ -25,7 +25,7 @@ const pages: ExtensionPages = [
           items={[
             {
               emoji: "😀",
-              description: "Grinning Face",
+              description: "Grinning Facea",
             },
             {
               emoji: "😃",
