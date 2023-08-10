@@ -78,4 +78,12 @@ const metadata: ExtensionMetadata = {
   repoUrl: "https://github.com/JulianKominovic/sittly-emoji-extension",
 };
 
-export { pages, metadata };
+(window as any).extensions = (window as any).extensions
+  ? [
+      ...(window as any).extensions,
+      {
+        pages,
+        metadata,
+      },
+    ]
+  : [{ pages, metadata }];
