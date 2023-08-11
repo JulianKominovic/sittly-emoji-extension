@@ -57,9 +57,9 @@ const pages: ExtensionPages = [
     name: "Emojis",
     route: "/emojis",
     component: () => {
-      // const setContextMenuOptions = useServices(
-      //   (state) => state.setContextMenuOptions
-      // );
+      const setContextMenuOptions = useServices(
+        (state) => state.setContextMenuOptions
+      );
       return (
         <main className="flex flex-col h-full gap-4 px-4 py-2 overflow-y-auto">
           <Title />
