@@ -1,7 +1,7 @@
 import * as React from "react";
 import { BsClipboard, BsEmojiSmile } from "react-icons/bs";
 // import { SittlyCommand } from "sittly-devtools/dist/components/own_command";
-import * as unicodeEmoji from "unicode-emoji";
+// import * as unicodeEmoji from "unicode-emoji";
 import {
   copyToClipboard,
   pasteToCurrentWindow,
@@ -21,7 +21,7 @@ import {
 import { Slider } from "sittly-devtools/dist/components/slider";
 import { Switch } from "sittly-devtools/dist/components/switch";
 
-const emojis = unicodeEmoji.getEmojis();
+// const emojis = unicodeEmoji.getEmojis();
 
 const Title = () => {
   return (
