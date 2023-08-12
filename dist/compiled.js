@@ -179,7 +179,7 @@ var pages = [
       const setContextMenuOptions = useServices(
         (state) => state.setContextMenuOptions
       );
-      return /* @__PURE__ */ React3.createElement(SittlyCommand.Root, null, /* @__PURE__ */ React3.createElement(
+      return /* @__PURE__ */ React3.createElement(
         SittlyCommand.Grid,
         {
           id: "emojis-page-grid",
@@ -218,7 +218,7 @@ var pages = [
             };
           })
         }
-      ));
+      );
     },
     description: "A collection of emojis",
     icon: /* @__PURE__ */ React3.createElement(BsEmojiSmile, null)

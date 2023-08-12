@@ -20,45 +20,43 @@ const pages: ExtensionPages = [
         (state) => state.setContextMenuOptions
       );
       return (
-        <SittlyCommand.Root>
-          <SittlyCommand.Grid
-            id="emojis-page-grid"
-            columns={4}
-            items={emojis.map((emoji) => {
-              return {
-                onClick() {
-                  pasteToCurrentWindow(emoji.emoji);
-                },
-                onHighlight() {
-                  setContextMenuOptions([
-                    {
-                      title: "Copy",
-                      onClick() {
-                        copyToClipboard(emoji.emoji);
-                      },
-                      description: `Copy ${emoji.emoji} to the clipboard`,
-                      icon: <BsClipboard />,
+        <SittlyCommand.Grid
+          id="emojis-page-grid"
+          columns={4}
+          items={emojis.map((emoji) => {
+            return {
+              onClick() {
+                pasteToCurrentWindow(emoji.emoji);
+              },
+              onHighlight() {
+                setContextMenuOptions([
+                  {
+                    title: "Copy",
+                    onClick() {
+                      copyToClipboard(emoji.emoji);
                     },
-                  ]);
-                },
-                filteringText: emoji.description,
-                customChildren: (
-                  <div
-                    style={{
-                      fontSize: "3rem",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {emoji.emoji}
-                  </div>
-                ),
-                className: "flex items-center justify-center",
-              };
-            })}
-          />
-        </SittlyCommand.Root>
+                    description: `Copy ${emoji.emoji} to the clipboard`,
+                    icon: <BsClipboard />,
+                  },
+                ]);
+              },
+              filteringText: emoji.description,
+              customChildren: (
+                <div
+                  style={{
+                    fontSize: "3rem",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {emoji.emoji}
+                </div>
+              ),
+              className: "flex items-center justify-center",
+            };
+          })}
+        />
       );
     },
     description: "A collection of emojis",
