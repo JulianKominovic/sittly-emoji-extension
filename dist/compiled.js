@@ -204,7 +204,6 @@ var pages = [
     route: "/emojis",
     component: () => {
       const setContextMenuOptions = useServices(
-        //@ts-expect-error
         (state) => state.setContextMenuOptions
       );
       return /* @__PURE__ */ React.createElement(

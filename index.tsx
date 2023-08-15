@@ -15,7 +15,6 @@ const pages: ExtensionPages = [
     route: "/emojis",
     component: () => {
       const setContextMenuOptions = useServices(
-        //@ts-expect-error
         (state) => state.setContextMenuOptions
       );
       return (
@@ -28,7 +27,6 @@ const pages: ExtensionPages = [
                 pasteToCurrentWindow(emoji.emoji);
               },
               onHighlight() {
-                //@ts-expect-error
                 setContextMenuOptions([
                   {
                     title: "Copy",
