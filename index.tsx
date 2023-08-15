@@ -1,14 +1,12 @@
-import React from "react";
 import { BsClipboard, BsEmojiSmile } from "react-icons/bs";
-import { SittlyCommand } from "sittly-devtools/dist/components/own_command";
 import * as unicodeEmoji from "unicode-emoji";
-import { useServices } from "sittly-devtools/dist/hooks/context";
-import {
-  copyToClipboard,
-  pasteToCurrentWindow,
-} from "sittly-devtools/dist/api/clipboard";
 import { ExtensionMetadata, ExtensionPages } from "sittly-devtools/dist/types";
-import register from "sittly-devtools/dist/register";
+
+const { components, hooks, api, register } = window.SittlyDevtools;
+const { Command } = components;
+const { useServices } = hooks;
+const { clipboard } = api;
+const { pasteToCurrentWindow, copyToClipboard } = clipboard;
 const emojis = unicodeEmoji.getEmojis();
 
 const pages: ExtensionPages = [
@@ -17,10 +15,11 @@ const pages: ExtensionPages = [
     route: "/emojis",
     component: () => {
       const setContextMenuOptions = useServices(
+        //@ts-expect-error
         (state) => state.setContextMenuOptions
       );
       return (
-        <SittlyCommand.Grid
+        <Command.Grid
           id="emojis-page-grid"
           columns={4}
           items={emojis.map((emoji) => {
@@ -29,6 +28,7 @@ const pages: ExtensionPages = [
                 pasteToCurrentWindow(emoji.emoji);
               },
               onHighlight() {
+                //@ts-expect-error
                 setContextMenuOptions([
                   {
                     title: "Copy",
